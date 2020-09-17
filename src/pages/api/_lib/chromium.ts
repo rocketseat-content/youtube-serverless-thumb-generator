@@ -24,6 +24,7 @@ export async function getScreenshot(
 
   await page.setViewport({ width: 1200, height: 630 })
   await page.setContent(html)
+  await page.evaluateHandle('document.fonts.ready');
 
   const file = await page.screenshot({ type: 'png' })
 
